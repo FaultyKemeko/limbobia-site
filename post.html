@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Limbobia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="nav-container"></div>
+  <div id="conteudo"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const id = Number(params.get("id"));
+
+      fetch("posts.json")
+        .then(res => res.json())
+        .then(posts => {
+          const post = posts.find(p => p.id === id);
+          if (!post) {
+            document.getElementById("conteudo").innerHTML = "<h1>Arquivo não encontrado</h1>";
+            return;
+          }
+
+          let linkVoltar = "index.html";
+          let textoVoltar = "⬅ Voltar para o início";
+          if (post.categoria === "figura") { linkVoltar = "post.html?id=5"; textoVoltar = "⬅ Voltar para Figuras"; }
+          else if (post.categoria === "local") { linkVoltar = "post.html?id=6"; textoVoltar = "⬅ Voltar para Locais"; }
+          document.getElementById("nav-container").innerHTML = `<a href="${linkVoltar}">${textoVoltar}</a>`;
+
+          // LÓGICA PARA CARREGAR CONTEÚDO (TXT ou texto simples)
+          if (post.arquivoTexto) {
+            fetch(post.arquivoTexto)
+              .then(res => res.text())
+              .then(texto => montarPagina(post, texto, posts));
+          } else {
+            montarPagina(post, post.conteudo, posts);
+          }
+        });
+    });
+
+    function montarPagina(post, texto, posts) {
+      let html = `<h1>${post.titulo}</h1><p>${texto}</p>`;
+      if (post.id === 5 || post.id === 6) {
+        const cat = (post.id === 5) ? "figura" : "local";
+        posts.filter(p => p.categoria === cat).forEach(item => {
+          html += `<br><a href="post.html?id=${item.id}" class="botao">${item.titulo}</a><br>`;
+        });
+      } else if (post.imagem) {
+        html += `<img src="${post.imagem}" class="img-arquivo">`;
+      }
+      document.getElementById("conteudo").innerHTML = html;
+    }
+  </script>
+</body>
+</html>

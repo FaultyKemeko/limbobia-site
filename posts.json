@@ -1,0 +1,60 @@
+[
+  {
+    "id": 1,
+    "titulo": "Relatório 01 - A cidade apareceu",
+    "visivel": true,
+    "resumo": "Testemunhas afirmam ter visto Limbobia novamente.",
+    "arquivoTexto": "assets/textos/relatorio01.txt",
+    "imagem": "assets/imagens/cidade.jpg"
+  },
+  {
+    "id": 2,
+    "titulo": "Prefeito de Limbobia",
+    "visivel": false,
+    "categoria": "figura",
+    "resumo": "O homem que nunca deveria existir.",
+    "arquivoTexto": "assets/textos/relatorio02.txt",
+    "imagem": "assets/imagens/prefeito.jpg"
+  },
+  {
+    "id": 3,
+    "titulo": "Delegado",
+    "visivel": false,
+    "categoria": "figura",
+    "resumo": "Responsável pelos desaparecimentos?",
+    "arquivoTexto": "assets/textos/relatorio03.txt",
+    "imagem": "assets/imagens/delegado.jpg"
+  },
+  {
+    "id": 4,
+    "titulo": "Coronel",
+    "visivel": false,
+    "categoria": "figura",
+    "resumo": "Alguém que sabe demais sobre Limbobia.",
+    "arquivoTexto": "assets/textos/relatorio04.txt",
+    "imagem": "assets/imagens/coronel.jpg"
+  },
+  {
+    "id": 5,
+    "titulo": "Figuras importantes",
+    "visivel": true,
+    "resumo": "Pessoas ligadas aos eventos de Limbobia.",
+    "arquivoTexto": "assets/textos/relatorio05.txt"
+  },
+  {
+    "id": 6,
+    "titulo": "Locais de Limbobia",
+    "visivel": true,
+    "resumo": "Pontos de interesse da cidade.",
+    "arquivoTexto": "assets/textos/relatorio06.txt"
+  },
+  {
+    "id": 7,
+    "titulo": "Floresta de Ether",
+    "visivel": false,
+    "categoria": "local",
+    "resumo": "Onde o áudio foi encontrado.",
+    "arquivoTexto": "assets/textos/relatorio07.txt",
+    "imagem": "assets/imagens/floresta.jpg"
+  }
+]
